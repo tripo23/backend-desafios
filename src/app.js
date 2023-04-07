@@ -21,7 +21,7 @@ server.get('/products', async (req, res) => {
 })
 
 
-// /products/yba23
+// /products/3
 server.get('/products/:pid/', async (req, res) => {
     const selectedProduct = await producto.getProductById(req.params.pid);
     res.send(selectedProduct);

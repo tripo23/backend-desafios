@@ -2,6 +2,7 @@ const fs = require('fs');
 
 class ProductManager {
     static ultimoId = 1;
+    static notFound = 'Producto no existe';
 
     constructor(path) {
         this.path = path;
@@ -49,18 +50,8 @@ class ProductManager {
     getProductById = async (id) => {
         try {
             await this.load();
-            const found = this.products.find(product => product.id === id);
-            return found ? found : console.log('Not found');
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
-    getProductByCode = async (code) => {
-        try {
-            await this.load();
-            const found = this.products.find(product => product.code === code);
-            return found ? found : console.log('Not found');
+            const found = this.products.find(product => product.id === parseInt(id));
+            return found ? found : ProductManager.notFound;
         } catch (err) {
             console.log(err);
         }
