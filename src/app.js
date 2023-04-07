@@ -5,7 +5,7 @@ const port = 8080;
 
 
 
-const producto = new ProductManager('archivo.json');
+const producto = new ProductManager('../archivo.json');
 
 // /products?limit=1
 server.get('/products', async (req, res) => {
