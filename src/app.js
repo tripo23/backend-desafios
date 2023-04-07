@@ -23,8 +23,8 @@ server.get('/products', async (req, res) => {
 
 // /products/yba23
 server.get('/products/:pid/', async (req, res) => {
-    const codeProduct = await producto.getProductByCode(req.params.pid);
-    res.send(codeProduct);
+    const selectedProduct = await producto.getProductById(req.params.pid);
+    res.send(selectedProduct);
 });
 
 server.listen(port, () => {
